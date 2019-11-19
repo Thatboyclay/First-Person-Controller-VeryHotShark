@@ -1,0 +1,57 @@
+using UnityEngine;
+using Systems.Collections;
+
+//Example Unity Custom Inspector for replacing Naughty Assignments, my attempt to make controller more plug and play
+//Will update to be actual custom inspector for this project, currently just a reference
+//Example credit goes to Jason Walters for his very clean tutorial on Channel9 found here: https://channel9.msdn.com/Blogs/raw-tech/Lets-Create-Custom-Inspector-in-Unity
+
+public class CustomInspector : MonoBehaviour
+{
+  [Header("Variables")}
+  public string srting1 = "This is a string.";
+  public float1 = 100.0f;
+  public int1 = 10;
+  public bool bool1 = true;
+  
+  [Header("Sliders")]
+  [Range(0.0f,10.0f)]
+  public float slider1;
+  [Range(0.0f,100.0f)]
+  public float slider2;
+  [Range(0.0f,1000.0f)]
+  public float slider3;
+
+  [Header("Drop Down")]
+  //First, this is the list that the Drop Down will use.
+  public enum Selector
+  {
+    Zero = 0,
+    One = 1,
+    Two = 2,
+    Three = 3,
+    Four = 4,
+    Five = 5
+  }
+  //Second, this creates the actual Drop Down.
+  public Selector select = Selector.one;
+  
+  [Header("Creates Space between Variable Lines")]
+  public float var1;
+  [Space(5.0f)]
+  public float var2;
+  [Space(10.0f)]
+  public float var3;
+  
+  [Header("Colors")]
+  public Color rgba;
+  public Gradient gradient;
+  
+  [Header("How to show Private Variables")]
+  // Must use the "SerializeField" before each private variable.
+  [SerializeField]
+  prive int privateInt1 = 2;
+  [SerializeField]
+  prive int privateInt2 = 4;
+  
+  
+}
